@@ -1,15 +1,16 @@
-import { EnrollmentData } from "../Data/db.json";
+import { StudentData } from "../Data/db.json";
 
 const tableHeader = [
-  { title: "Enr.No" },
-  { title: "S.Name" },
-  { title: "C.Name" },
-  { title: "Fees" },
-  { title: "Enr.Date" },
+  { title: "registrationNumber" },
+  { title: "firstName" },
+  { title: "lastName" },
+  { title: "courseName" },
+  { title: "fees" },
+  { title: "registrationDate" },
 ];
 
-export const EnrolTable = ({ showAll }) => {
-  const EntriesToShow = showAll ? EnrollmentData.length : 5;
+export const StudentTable = ({ stdshow }) => {
+  const EntriesToShow = stdshow ? StudentData.length : 5;
 
   return (
     <div className='flex flex-col p-2 bg-white'>
@@ -27,16 +28,17 @@ export const EnrolTable = ({ showAll }) => {
                 </tr>
               </thead>
               <tbody>
-                {EnrollmentData.slice(0, EntriesToShow).map((el, i) => (
+                {StudentData.slice(0, EntriesToShow).map((el, i) => (
                   <tr key={i} className='border-b border-stone-300'>
                     <td className='whitespace-nowrap px-6'>
-                      {el.enrollmentNumber}
+                      {el.registrationNumber}
                     </td>
-                    <td className='whitespace-nowrap px-6'>{el.studentName}</td>
+                    <td className='whitespace-nowrap px-6'>{el.firstName}</td>
+                    <td className='whitespace-nowrap px-6'>{el.lastName}</td>
                     <td className='whitespace-nowrap px-6'>{el.courseName}</td>
                     <td className='whitespace-nowrap px-6'>{el.fees}</td>
                     <td className='whitespace-nowrap px-6'>
-                      {el.enrollmentDate}
+                      {el.registrationDate}
                     </td>
                   </tr>
                 ))}

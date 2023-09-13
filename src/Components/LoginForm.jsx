@@ -13,6 +13,7 @@ export const LoginForm = () => {
   const navigate = useNavigate();
 
   const handleSubmit = async () => {
+    setLoading(true);
     try {
       if (!email) {
         toast.error("Please fill all the fields");
@@ -28,7 +29,7 @@ export const LoginForm = () => {
       localStorage.setItem("token", JSON.stringify(data));
       // console.log(data);
       alert("Admin Login Successful");
-      navigate("/");
+      navigate("/home");
     } catch (err) {
       console.log(err);
     }
@@ -45,7 +46,7 @@ export const LoginForm = () => {
           <InputBox
             type={"email"}
             required={true}
-            placeholder={"Enter email"}
+            placeholder={"Enter admin@gmail.com"}
             setState={setEmail}
             state={email}
           />
@@ -60,7 +61,7 @@ export const LoginForm = () => {
           <InputBox
             type={"password"}
             required={true}
-            placeholder={"Enter Password"}
+            placeholder={"Enter admin"}
             setState={setPassword}
             state={password}
           />

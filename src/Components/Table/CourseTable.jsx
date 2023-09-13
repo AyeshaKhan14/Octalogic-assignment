@@ -16,7 +16,7 @@ const tableHeader = [
 
 export const CourseTable = ({ searchQuery }) => {
   const course = useSelector((state) => state.coursereducer.course);
-  console.log(course);
+  // console.log(course);
   const dispatch = useDispatch();
   const filteredData = course.filter((el) => {
     return (
